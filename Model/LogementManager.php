@@ -1,5 +1,4 @@
 <?php
-
 require_once "model/Manager.php";
 require_once "model/Logement.php";
 
@@ -15,20 +14,28 @@ class LogementManager extends Manager {
         return $this->logements;
     }
 
-        // --------------------------------Get all logements from DB------------
+    // -------------------Get 3 Logements from DB---------------------
 
-        public function loadLogements(){
-            $req = $this->getBdd()->prepare("SELECT * FROM logement");
-            $req->execute();
-            $myLogements = $req->fetchAll(PDO::FETCH_ASSOC);
-            $req->closeCursor();
+    public function getThreeLogements(){
+        $this->loadLogements();
+        $logements = array_slice( $this->logements, 0, 3 );
+        return $logements;
+    }
+
+    // --------------------------------Get all logements from DB------------
+
+    public function loadLogements(){
+        $req = $this->getBdd()->prepare("SELECT * FROM logement");
+        $req->execute();
+        $myLogements = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
     
-            foreach($myLogements as  $logement){
-                $l = new Logement ($logement["id"],$logement["title"],$logement["adress"],$logement["city"],
-                $logement["postalCode"],$logement["area"],$logement["price"],$logement["photo"],$logement["logement_type"],$logement["logement_description"]);
-                $this->addLogement($l);
-            }
+        foreach($myLogements as  $logement){
+            $l = new Logement ($logement["id"],$logement["title"],$logement["adress"],$logement["city"],
+            $logement["postalCode"],$logement["area"],$logement["price"],$logement["photo"],$logement["logement_type"],$logement["logement_description"]);
+            $this->addLogement($l);
         }
+    }
     
     // -------------------------------------------------------------
     // --------------------------------CRUD-------------------------
@@ -36,8 +43,9 @@ class LogementManager extends Manager {
 
 
     // --------------------------------CREATE-----------------------
-    public function newGameDB($id,$title,$adress,$city,$postalCode,$area,$price,$photo,$logement_type,$logement_description){
-        $req = "INSERT INTO logement (title,adress,city,postalCode,area,price,photo,logement_type,logement_description) VALUES (:title,:adress,:city,:postalCode,:area,:price,:photo,:logement_type,:logement_description)";
+    public function newLogementDB($title,$adress,$city,$postalCode,$area,$price,$photo,$logement_type,$logement_description){
+        $req = "INSERT INTO logement (title,adress,city,postalCode,area,price,photo,logement_type,logement_description) 
+        VALUES (:title,:adress,:city,:postalCode,:area,:price,:photo,:logement_type,:logement_description)";
         $statement = $this->getBdd()->prepare($req);
         $statement->bindValue(":title", $title, PDO::PARAM_STR);
         $statement->bindValue(":adress", $adress, PDO::PARAM_STR);
@@ -70,8 +78,8 @@ class LogementManager extends Manager {
     // --------------------------------UPDATE-----------------------
 
     public function editLogementDB($id, $title, $adress, $city, $postalCode, $area, $price, $photo, $logement_type, $logement_description){
-        $req = "UPDATE logement SET (title = :title ,adress = :adress,city = :city,postalCode = :postalCode, area = :area, 
-        price = :price, photo = :photo,logement_type = :logement_type, logement_description = logement_description WHERE id = :id");
+        $req = "UPDATE logement SET title = :title ,adress = :adress,city = :city, postalCode = :postalCode, area = :area, 
+        price = :price, photo = :photo,logement_type = :logement_type, logement_description = :logement_description WHERE id = :id";
         $statement = $this->getBdd()->prepare($req);
         $statement->bindValue(":id", $id, PDO::PARAM_INT);
         $statement->bindValue(":title", $title, PDO::PARAM_STR);
