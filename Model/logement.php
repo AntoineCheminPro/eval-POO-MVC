@@ -10,12 +10,12 @@ class Logement {
     private $area;
     private $price;
     private $photo;
-    private $type;
-    private $description;
+    private $logement_type;
+    private $logement_description;
 
 
 
-    public function __construct($id, $title, $adress, $city, $postalCode, $area, $price, $photo, $type, $description)
+    public function __construct($id, $title, $adress, $city, $postalCode, $area, $price, $photo, $logement_type, $logement_description)
 
     {
         $this->id = $id;
@@ -26,8 +26,8 @@ class Logement {
         $this->area = $area;
         $this->price = $price;
         $this->photo = $photo;
-        $this->type = $type;
-        $this->description = $description;
+        $this->logement_type = $logement_type;
+        $this->logement_description = $logement_description;
     
         
     }
@@ -177,19 +177,19 @@ class Logement {
     }
 
     /**
-     * Get the value of type
+     * Get the value of Logementtype
      */
-    public function getType()
+    public function getLogementType()
     {
-        return $this->type;
+        return $this->logement_type;
     }
 
     /**
      * Set the value of type
      */
-    public function setType($type): self
+    public function setLogementType($logement_type): self
     {
-        $this->type = $type;
+        $this->$logement_type = $logement_type;
 
         return $this;
     }
@@ -197,17 +197,17 @@ class Logement {
     /**
      * Get the value of description
      */
-    public function getDescription()
+    public function getLogementDescription()
     {
-        return $this->description;
+        return $this->logement_description;
     }
 
     /**
      * Set the value of description
      */
-    public function setDescription($description): self
+    public function setLogementDescription($logement_escription): self
     {
-        $this->description = $description;
+        $this->$logement_escription = $logement_escription;
 
         return $this;
     }
