@@ -2,29 +2,30 @@
 
 <p class="text-center">Notre selection de logement</p>
 
-<table class="table table-hover text-center shadow">
-    <thead class="table-dark">
-        <tr>
-            <th scope="col">Titre</th>
-            <th scope="col">Ville</th>
-            <th scope="col" colspan="2">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($logements as $logement) : ?>
-            <tr class="table">
-                <td scope="row"><?= $logement->getTitle()?></td>
-                <td><?= $logement->getCity() ?></td>
-                <td><a href="<?= URL ?>logement/edit/<?= $logement->getId() ?>"><i class="fas fa-edit"></i></a></td>
-                <td>
-                <form method="POST" action="<?= URL ?>logements/delete/<?= $logement->getId() ?>"  
-                onsubmit="return confirm('Êtes-vous certain de vouloir supprimer ce logement?')">
-                <button class="btn" type="submit"><i class="fas fa-trash"></i></button></td>
-                </form>  
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+<div class="row p-2 m-auto align-items-center justify-content-between" style="height: 30rem">
+    <?php foreach ($logements as $logement) : ?>
+      <div class="card" style="width: 18rem;">
+        <img src="<?= $logement->getAdress()?>"class="card-img-top" alt="photo du logement">
+        <div class="card-body">
+          <h5 class="card-title"><?= $logement->getTitle()?></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+              <li class="card-text list-unstyled"> <strong><?= $logement->getLogementType() ?> de <?= $logement->getArea() ?> m²</strong></li>
+              <li class="card-text list-unstyled"><?= $logement->getPostalCode() ?> <?= $logement->getCity() ?></li>
+              <li class="card-text list-unstyled"> Prix : <?= $logement->getPrice() ?> €</li>
+              <li class="card-text list-unstyled"> Adresse : <?=  $logement->getAdress() ?></li>
+        </ul>
+        <div class="card-body">
+        <a href="<?= URL ?>logements/edit/<?= $logement->getId() ?>"><i class="fas fa-edit"></i></a>
+          <form method="POST" action="<?= URL ?>logements/delete/<?= $logement->getId() ?>"  
+            onsubmit="return confirm('Êtes-vous certain de vouloir supprimer ce logement?')">
+            <button class="btn" type="submit"><i class="fas fa-trash"></i></button></td>
+          </form>  
+        </div>
+</div>
+    <?php endforeach; ?>
+    
+</div>
 
 <a href="<?= URL?>logements/add" class="btn btn-success w-25 d-block m-auto">Ajouter un logement</a>
 

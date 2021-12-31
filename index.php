@@ -21,11 +21,11 @@ if (empty($_GET['page'])) {
         
     
         case "accueil":
-
             $logementManager = new LogementManager();
             $logements = $logementManager->getThreeLogements();
             $homeController->displayHome($logements);
         break;
+        
         case "logements": 
             if (empty($url[1])) {
                 $logementController->displayLogements();
@@ -38,7 +38,6 @@ if (empty($_GET['page'])) {
                 }elseif($url[1] == "editvalid"){
                    $logementController->editLogementValidation($url[2]);
                 }elseif($url[1] == "delete"){
-                    // echo "$url[2]";
                     $logementController->deleteLogement($url[2]);
                 }elseif($url[1] == "logements"){
                     $logementController->displayLogements();
