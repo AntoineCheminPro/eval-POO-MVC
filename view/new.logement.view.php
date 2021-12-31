@@ -1,4 +1,4 @@
-<?php ob_start()?>
+<?php ob_start() ?>
 
 <form method="POST" action="<?= URL ?>logements/lvalid">
   <div class="form-group">
@@ -43,7 +43,7 @@
 <?php
 
 $content = ob_get_clean();
-$title="Ajouter un logement";
+$title = "Ajouter un logement";
 require_once "base.html.php";
 
 ?>

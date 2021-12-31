@@ -1,0 +1,56 @@
+.bg-firstColor {
+    background-color: #485936;
+}
+
+.bg-secondColor {
+    background-color: #93a368;
+}
+
+.bg-thirdColor {
+    background-color: #cadbb7;
+}
+
+.bg-fourthColor {
+    background-color: #9dcdbf;
+}
+
+.bg-fifthColor {
+    background-color: #FCFBFC;
+}
+
+.fluo {
+    color: #58ff01;
+}
+
+.header {
+    height: 10vh;
+}
+
+.customerImg {
+    width: 10vw;
+    height: auto;
+}
+
+.icone {
+    width: 50px;
+    height: auto;
+}
+
+.footer {
+    height: 18vh;
+}
+
+main {
+    min-height: 81vh;
+}
+
+.carousel-inner {
+    height: 500px;
+    width: auto;
+}
+
+.footerText {
+    font-size: 1em;
+    Line-height: 1px;
+}
+
