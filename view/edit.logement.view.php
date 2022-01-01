@@ -40,18 +40,21 @@
     </div>
 
     <!-- <form action="upload.php" method="post" enctype="multipart/form-data">
-        <h6>Ajouter une photo</h6>
-        <label for="fileUpload">Fichier :</label>
-        <input type="file" name="photo" id="fileUpload">
-        <input type="submit" name="submit" value="Upload">
-        <p><strong>Note:</strong> Seuls les formats .jpg, .jpeg, .jpeg, .gif, .png sont autorisés jusqu'à une taille maximale de 5 Mo.</p>
+    <h6>Ajouter une photo</h6>
+    <label for="fileUpload">Fichier :</label>
+    <input type="file" name="photo" id="fileUpload">
+    <input type="submit" name="submit" value="Upload">
+    <p><strong>Note:</strong> Seuls les formats .jpg, .jpeg, .jpeg, .gif, .png sont autorisés jusqu'à une taille maximale de 5 Mo.</p>
     </form> -->
     <!-- <div class="form-group">
-                <label for="formFile" class="form-label mt-4">Default file input example</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>   -->
+    <label for="formFile" class="form-label mt-4">Default file input example</label>
+    <input class="form-control" type="file" id="formFile">
+    </div>   -->
+
     <input type="hidden" name="id-logement" value="<?= $logement->getId() ?>">
-    <button type="submit" class="btn btn-warning">Modifier</button>
+    <div class="container text-center">
+        <button type="submit" class="btn btn-warning m-4 p-4">Modifier</button>
+    </div>
 </form>
 
 

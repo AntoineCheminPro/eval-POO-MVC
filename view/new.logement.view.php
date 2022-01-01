@@ -37,7 +37,9 @@
     <label for="photo">photo</label>
     <input type="text" class="form-control" id="photo" name="photo" placeholder="photo">
   </div>
-  <button type="submit" class="btn btn-success">Ajouter</button>
+  <div class="container text-center">
+  <button type="submit" class="btn btn-success m-4 P-4">Ajouter</button>
+  </div>
 </form>
 
 <?php
