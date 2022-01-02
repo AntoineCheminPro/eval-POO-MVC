@@ -25,11 +25,21 @@
     <label for="price">prix</label>
     <input type="number" class="form-control" id="price" name="price" placeholder="prix">
   </div>
-  <div class="form-group">
-    <label for="logement_type">type de logement</label>
-    <input type="text" class="form-control" id="logement_type" name="logement_type" placeholder="type de logement">
-  </div>
-  <div class="form-group">
+  <!-- --------------------Radio buttons -------------------------- -->
+    <div class="form-check">
+        <input class="form-check-input " type="radio" value="Maison" id="logement_type" name="logement_type" checked>
+        <label class="form-check-label" for="flexCheckDefault">
+            Maison
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input " type="radio" value="Appartement" id="logement_type" name="logement_type" >
+        <label class="form-check-label" for="flexCheckChecked">
+            Appartement
+        </label>
+    </div>
+
+  <div class="form-group m-4 p-2">
     <label for="logement_description">description</label>
     <input type="text" class="form-control" id="logement_description" name="logement_description" placeholder="description">
   </div>

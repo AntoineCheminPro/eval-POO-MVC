@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<form method="POST" action="<?= URL ?>logements/editvalid" enctype="multipart/form-data">>
+<form method="POST" action="<?= URL ?>logements/editvalid" enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="title">Nom du logement</label>
@@ -26,29 +26,35 @@
         <label for="price">prix</label>
         <input type="number" class="form-control" value="<?= $logement->getPrice() ?>" id="price" name="price" placeholder="prix">
     </div>
-    <div class="form-group">
-        <label for="logement_type">type de logement</label>
-        <input type="text" class="form-control" value="<?= $logement->getLogementType() ?>" id="logement_type" name="logement_type" placeholder="type de logement">
-    </div>
-    <div class="form-group">
+    <div class="form-group m-4">
         <label for="logement_description">description</label>
         <input type="text" class="form-control" value="<?= $logement->getLogementDescription() ?>" id="logement_description" name="logement_description" placeholder="description">
     </div>
-    
-    <!-- --------------btn modifier------------------------------ -->
-    <input type="hidden" name="id" value="<?= $logement->getId() ?>">
-    <div class="container text-center">
+
+    <!-- --------------------Radio buttons -------------------------- -->
+    <div class="form-check">
+        <input class="form-check-input " type="radio" value="Maison" id="logement_type" name="logement_type" checked>
+        <label class="form-check-label" for="flexCheckDefault">
+            Maison
+        </label>
     </div>
-    
+    <div class="form-check">
+        <input class="form-check-input " type="radio" value="Appartement" id="logement_type" name="logement_type" >
+        <label class="form-check-label" for="flexCheckChecked">
+            Appartement
+        </label>
+    </div>
+
     <!-- ---------------------------Upload image------------------------ -->
-    <div>
-    <label for="photo"> <h3> Ajouter une photo</h3></label>
-    <input type="file" id="photo" name="photo">
-    <button type="submit" onclick="imgUpload(<?= $logement->getId() ?>)"class="btn btn-warning m-4 p-4">Modifier</button>
+    <div class="container text-center">
+        <input type="hidden" name="id" value="<?= $logement->getId() ?>">
+        <label for="photo">
+            <h3> Ajouter une photo</h3>
+        </label>
+        <input type="file" id="photo" name="photo">
+        <button type="submit" onclick="imgUpload(<?= $logement->getId() ?>)" class="btn btn-warning m-4 p-4">Modifier</button>
     </div>
 </form>
-
-        
 
 <?php
 
