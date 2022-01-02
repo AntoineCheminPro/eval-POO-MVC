@@ -5,8 +5,8 @@
 <div class="row p-4 m-auto align-items-center justify-content-between" style="height: 20rem">
 
   <?php foreach ($logements as $logement) : ?>
-    <div class="card text-center" style="width: 18rem;">
-      <img src="<?= $logement->getPhoto() ?>" class="card-img-top p-4 m-1" alt="photo du logement">
+    <div class="card text-center mx-auto my-3 clo-sm-10 p-3" style="width: 25rem;">
+      <img src="../upload/<?= $logement->getPhoto() ?>" class="card-img-top p-4 m-1" alt="photo du logement">
       <div class="card-body">
         <h5 class="card-title"><?= $logement->getTitle() ?></h5>
       </div>

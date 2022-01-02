@@ -34,11 +34,9 @@ if (empty($_GET['page'])) {
                 }elseif($url[1] == "lvalid"){
                     $logementController->newLogementValidation();
                 }elseif($url[1] == "edit"){
-                    
                    $logementController->editLogementForm($url[2]);
-
                 }elseif($url[1] == "editvalid"){
-                   $logementController->editLogementValidation($url[2]);
+                   $logementController->editLogementValidation();
                 }elseif($url[1] == "delete"){
                     $logementController->deleteLogement($url[2]);
                 }elseif($url[1] == "logements"){

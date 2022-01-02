@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<form method="POST" action="<?= URL ?>logements/editvalid">
+<form method="POST" action="<?= URL ?>logements/editvalid" enctype="multipart/form-data">>
 
     <div class="form-group">
         <label for="title">Nom du logement</label>
@@ -34,20 +34,24 @@
         <label for="logement_description">description</label>
         <input type="text" class="form-control" value="<?= $logement->getLogementDescription() ?>" id="logement_description" name="logement_description" placeholder="description">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="photo">photo</label>
         <input type="text" class="form-control" value="<?= $logement->getPhoto() ?>" id="photo" name="photo" placeholder="photo">
-    </div>
+    </div> -->
     <!-- --------------btn modifier------------------------------ -->
-    <input type="hidden" name="id-logement" value="<?= $logement->getId() ?>">
+    <input type="hidden" name="id" value="<?= $logement->getId() ?>">
     <div class="container text-center">
-        <button type="submit" class="btn btn-warning m-4 p-4">Modifier</button>
+    </div>
+    
+    <!-- ---------------------------Upload image------------------------ -->
+    <div>
+    <label for="photo"> <h3> Ajouter une photo</h3></label>
+    <input type="file" id="photo" name="photo">
+    <button type="submit" onclick="imgUpload(<?= $logement->getId() ?>)"class="btn btn-warning m-4 p-4">Modifier</button>
     </div>
 </form>
 
-    <!-- ---------------------------Upload image------------------------ -->
         
-    <?php require_once "img.upload.view.php"; ?>
 
 <?php
 

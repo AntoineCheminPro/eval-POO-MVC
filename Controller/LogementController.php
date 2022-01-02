@@ -1,13 +1,17 @@
 <?php
 require_once "model/LogementManager.php";
+require_once "ImgController.php";
 
 class LogementController{
 
 private $logementManager;
+private $imgController;
 
 public function __construct(){
     $this->logementManager = new LogementManager();
     $this->logementManager->loadLogements();
+
+    $this->imgController = new ImgController;
 }
 
 // -------------------------Display all Logements to view-------------------------
@@ -36,9 +40,12 @@ public function editLogementForm($id){
 
 // ----------------------------Logement edit & redirection --------------------
 public function editLogementValidation(){
-    $this->logementManager->editLogementDB($_POST['id-logement'], $_POST['title'], $_POST['adress'], $_POST['city'], $_POST['postalCode'], $_POST['area'], $_POST['price'],
-        $_POST['photo'], $_POST['logement_type'], $_POST['logement_description']);
+    $imgName = $this->imgController->imgUpload($_FILES);
+    if ($imgName !== false) {
+        $this->logementManager->editLogementDB($_POST['id'], $_POST['title'], $_POST['adress'], $_POST['city'], $_POST['postalCode'], $_POST['area'], $_POST['price'],
+        $imgName, $_POST['logement_type'], $_POST['logement_description']);
     header('Location:' . URL . 'logements');
+    }
 }
 
 // ----------------------------Logement delete & redirection --------------------
