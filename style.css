@@ -1,24 +1,3 @@
-.bg-firstColor {
-    background-color: #485936;
-}
-
-.bg-secondColor {
-    background-color: #93a368;
-}
-
-.bg-thirdColor {
-    background-color: #cadbb7;
-}
-
-.bg-fourthColor {
-    background-color: #9dcdbf;
-}
-
-.bg-fifthColor {
-    background-color: #FCFBFC;
-}
-
-
 .header {
     height: 10vh;
 }
@@ -40,14 +19,11 @@
 main {
     min-height: 81vh;
 }
-
-.carousel-inner {
-    height: 500px;
-    width: auto;
+.description span
+{
+ display: none;
 }
 
-.footerText {
-    font-size: 1em;
-    Line-height: 1px;
+.description:hover span{
+	display:block;
 }
-

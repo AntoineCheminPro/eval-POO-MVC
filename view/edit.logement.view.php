@@ -34,10 +34,7 @@
         <label for="logement_description">description</label>
         <input type="text" class="form-control" value="<?= $logement->getLogementDescription() ?>" id="logement_description" name="logement_description" placeholder="description">
     </div>
-    <!-- <div class="form-group">
-        <label for="photo">photo</label>
-        <input type="text" class="form-control" value="<?= $logement->getPhoto() ?>" id="photo" name="photo" placeholder="photo">
-    </div> -->
+    
     <!-- --------------btn modifier------------------------------ -->
     <input type="hidden" name="id" value="<?= $logement->getId() ?>">
     <div class="container text-center">
